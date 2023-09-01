@@ -1,5 +1,5 @@
-CREATE DATABASE db_bd 
-USE db_bd 
+CREATE DATABASE db_bd3 
+USE db_bd3
 GO
 CREATE TABLE tbl_bd (
 	produto varchar (100) NOT NULL,
@@ -34,13 +34,13 @@ INSERT INTO tbl_bd VALUES
 	UPDATE	tbl_bd SET nomeProduto = 'porche' WHERE produto = 'produto 6'
 	UPDATE	tbl_bd SET nomeProduto = 'cavalo' WHERE produto = 'produto 7'
 
-	UPDATE	tbl_bd SET percentualLucro = 99 WHERE produto = 'produto 1' 
-	UPDATE	tbl_bd SET percentualLucro = 40 WHERE produto = 'produto 2' 
-	UPDATE	tbl_bd SET percentualLucro = 35 WHERE produto = 'produto 3' 
-	UPDATE	tbl_bd SET percentualLucro = 47 WHERE produto = 'produto 4' 
-	UPDATE	tbl_bd SET percentualLucro = 54 WHERE produto = 'produto 5' 
-	UPDATE	tbl_bd SET percentualLucro = 69 WHERE produto = 'produto 6' 
-	UPDATE	tbl_bd SET percentualLucro = 87 WHERE produto = 'produto 7' 
+	UPDATE	tbl_bd SET percentualLucro = 0.99 WHERE produto = 'produto 1' 
+	UPDATE	tbl_bd SET percentualLucro = 0.40 WHERE produto = 'produto 2' 
+	UPDATE	tbl_bd SET percentualLucro = 0.35 WHERE produto = 'produto 3' 
+	UPDATE	tbl_bd SET percentualLucro = 0.47 WHERE produto = 'produto 4' 
+	UPDATE	tbl_bd SET percentualLucro = 0.54 WHERE produto = 'produto 5' 
+	UPDATE	tbl_bd SET percentualLucro = 0.69 WHERE produto = 'produto 6' 
+	UPDATE	tbl_bd SET percentualLucro = 0.87 WHERE produto = 'produto 7' 
 
 	UPDATE	tbl_bd SET quantidade= '50' WHERE produto = 'produto 1' 
 	UPDATE	tbl_bd SET quantidade = '80' WHERE produto = 'produto 4' 
@@ -55,4 +55,4 @@ INSERT INTO tbl_bd VALUES
 
 	SELECT produto, custo_unitario FROM tbl_bd
 
-	SELECT produto,custo_unitario,(produto+custo_unitario) AS precoVenda FROM tbl_bd
+	SELECT produto,custo_unitario,'R$_' + CAST ((percentualLucro*custo_unitario) AS varchar (6)) AS precoVenda FROM tbl_bd
